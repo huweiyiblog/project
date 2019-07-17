@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="common" />
+        <module name="DesignMode" />
+        <module name="guava" />
+        <module name="springannotation" />
+        <module name="web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ejb" target="1.6" />
+      <module name="jackson" target="1.6" />
+      <module name="services" target="1.6" />
+      <module name="springBoot" target="1.6" />
+      <module name="springMvc" target="1.6" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
