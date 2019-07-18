@@ -23,3 +23,13 @@
     3）通过spring中factoryBean往容器中注入bean
          demo: ColorFactory
          使用地方：Mainconfig类中colorFactory()方法。
+ bean 的生命周期        
+ *    bean创建--初始化--销毁的过程
+ *    容器管理bean的生命周期;
+ *    我们可以自定义初始化和销毁方法：容器在bean进行到当前生命周期的时候来调用我们自定义的初始化和销毁方法
+ *    1)指定初始化和销毁方法
+ *     a)通过@Bean指定init-method 和 destroy-method
+ *     b)通过让bean实现InitializingBean(定义初始化逻辑)，DisposableBean（定义销毁逻辑）两个接口
+ *     c)BeanPostProcessor【interface】:bean的后置处理器。在bean初始化前后进行一些处理工作。
+ *     postProcessBeforeInitialization 初始化之前工作
+ *     postProcessAfterInitialization  初始化之后工作        
