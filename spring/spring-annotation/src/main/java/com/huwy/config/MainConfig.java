@@ -1,8 +1,13 @@
 package com.huwy.config;
 
+import com.huwy.bean.Color;
 import com.huwy.bean.Person;
+import com.huwy.bean.Red;
 import com.huwy.condition.LinuxCondition;
+import com.huwy.condition.MyImportBeanDefinitionRegistrar;
+import com.huwy.condition.MyImportSelector;
 import com.huwy.condition.WindowCondition;
+import com.huwy.factory.ColorFactory;
 import com.huwy.service.BookService;
 import org.springframework.context.annotation.*;
 import org.springframework.stereotype.Controller;
@@ -14,14 +19,26 @@ import org.springframework.stereotype.Service;
  * <p>日期: 2019/7/16 17:15
  * <p>作者: huwy
  */
-@Configuration   //告诉spring这是一个配置类（相当于配置类）
+
+
+//@Configuration告诉spring这是一个配置类（相当于配置类）
+/************************************************************/
 /**
+ * @ComponentScans：
  * value：指定要扫描的包
  * excludeFilters = filter[] 指定扫描的时候按照什么规则排除那些组件
  * includeFilters = filter[] 指定扫描的时候只需要包含那些组建，要配合禁用默认过滤规则（useDefaultFilters=false）
- * 备注：jdk8以上可以定义多个@componentScan注解，如果是jdk8以下的可以用@componentSans来定义（这是一个数组）, @componentSans注解在4.1.1是没有的。
+ * @componentSans注解在4.1.1是没有的。
  * demo:@ComponentScan(value = "com.huwy", excludeFilters = {@ComponentScan.Filter(type = FilterType.ANNOTATION, value = {Controller.class, Service.class})})
  */
+/***********************************************************/
+/**
+ * @Import:
+ *   1)@Import(要导入到容器中组件)，容器中就会自动注册这个组件，id默认是全类名
+ *   2）importSelector: 返回需要导入的组件的全类名数组，所有实现类需要继承importSelector接口。例子参考：MyImportSelector
+ *   3) ImportBeanDefinitionRegistrar：手动注册bean到容器中
+ */
+@Configuration
 @ComponentScans(
         value = {
                 @ComponentScan(value = "com.huwy",
@@ -32,6 +49,7 @@ import org.springframework.stereotype.Service;
                         useDefaultFilters = false)
         }
 )
+@Import({Red.class, MyImportSelector.class, MyImportBeanDefinitionRegistrar.class})
 public class MainConfig {
 
 
@@ -66,6 +84,17 @@ public class MainConfig {
     public Person person3() {
         Person person = new Person("linux", 48);
         return person;
+    }
+
+    /**
+     * 使用spring 提供的factoryBean 给容器注入bean
+     * 1)、默认获取到时工厂bean调用getObject创建的对象
+     * 2）、要获取工厂bean本身，我们需要给ID前面加入一个&
+     * @return
+     */
+    @Bean
+    public ColorFactory colorFactory() {
+        return new ColorFactory();
     }
 
 

@@ -2,7 +2,6 @@ package com.huwy.test;
 
 import com.huwy.bean.Person;
 import com.huwy.config.MainConfig;
-import com.huwy.config.MainConfig2;
 import org.junit.Test;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.context.ApplicationContext;
@@ -25,12 +24,12 @@ public class IOCTest {
     public void test01() {
         ApplicationContext context = new AnnotationConfigApplicationContext(MainConfig.class);
         System.out.println("IOC容器创建完成。。。。");
-        /*
+
         String [] definitionNames = context.getBeanDefinitionNames();
 
         for (int i = 0; i < definitionNames.length; i++) {
             System.out.println(definitionNames[i]);
-        }*/
+        }
 
         Person person = (Person) context.getBean("person");
 
@@ -39,17 +38,6 @@ public class IOCTest {
 
     }
 
-
-    @Test
-    public void test02() {
-        ApplicationContext context = new AnnotationConfigApplicationContext(MainConfig2.class);
-        String [] definitionNames = context.getBeanDefinitionNames();
-
-        for (int i = 0; i < definitionNames.length; i++) {
-            System.out.println(definitionNames[i]);
-        }
-
-    }
 
     //验证@Conditional注解
     @Test
@@ -69,6 +57,20 @@ public class IOCTest {
         Map<String, Person> persons = context.getBeansOfType(Person.class);
 
         System.out.println(persons);
+    }
+
+    //验证MainConfig->colorFactory()方法
+    @Test
+    public void test04() {
+        ApplicationContext context = new AnnotationConfigApplicationContext(MainConfig.class);
+       /* String [] definitionNames = context.getBeanDefinitionNames();
+
+        for (int i = 0; i < definitionNames.length; i++) {
+            System.out.println(definitionNames[i]);
+        }*/
+
+        Object colorFactory = context.getBean("colorFactory");
+        System.out.println(colorFactory.getClass());
     }
 
 }
