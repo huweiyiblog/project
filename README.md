@@ -9,8 +9,10 @@
       excludeFilters = filter[] 指定扫描的时候按照什么规则排除那些组件
       includeFilters = filter[] 指定扫描的时候只需要包含那些组建，要配合禁用默认过滤规则（useDefaultFilters=false）
       @componentSans注解在4.1.1是没有的。
-      demo:@ComponentScan(value = "com.huwy", excludeFilters = {@ComponentScan.Filter(type = FilterType.ANNOTATION, value =                       {Controller.class,   Service.class})})
-    
+      demo:@ComponentScan(value = "com.huwy", excludeFilters = {
+                                  @ComponentScan.Filter(type = FilterType.ANNOTATION, value = {Controller.class,   Service.class})
+                                  })
+                                  
     @Import:
     1）通过继承接口ImportBeanDefinitionRegistrar 来往容器中注入bean。
         demo：MyImportBeanDefinitionRegistrar
