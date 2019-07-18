@@ -14,6 +14,7 @@
                                   })
                                   
   @Import:
+  
     1）通过继承接口ImportBeanDefinitionRegistrar 来往容器中注入bean。
         demo：MyImportBeanDefinitionRegistrar
         使用地方：MainConfig 中@import注解中使用
@@ -32,4 +33,11 @@
  *     b)通过让bean实现InitializingBean(定义初始化逻辑)，DisposableBean（定义销毁逻辑）两个接口
  *     c)BeanPostProcessor【interface】:bean的后置处理器。在bean初始化前后进行一些处理工作。
  *     postProcessBeforeInitialization 初始化之前工作
- *     postProcessAfterInitialization  初始化之后工作        
+ *     postProcessAfterInitialization  初始化之后工作  
+ 
+ * 使用@Value+@PropertySource赋值：
+ * 1.基本数值  @Value("张三")
+ * 2.可以谢SpEL:#{}   @Value("#{20-2}")
+ * 3.可以写${};取出配置文件【properties】中的值（在运行环境变量的值）
+ * 使用注解方式加载properties文件。
+ * @PropertySource(value = {"classpath:person.properties"}, encoding = "utf-8")
