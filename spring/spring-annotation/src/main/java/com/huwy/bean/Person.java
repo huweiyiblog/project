@@ -2,6 +2,7 @@ package com.huwy.bean;
 
 
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Value;
 
 /**
  * <p>描述:
@@ -12,9 +13,14 @@ import lombok.Data;
 @Data
 public class Person {
 
+    @Value("张三")
     private String name;
 
+    @Value("#{20-2}")
     private int age;
+
+    @Value("${person.nikeName}")
+    private String nikeName;
 
     public Person() {
     }
@@ -22,5 +28,14 @@ public class Person {
     public Person(String name, int age) {
         this.name = name;
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", nikeName='" + nikeName + '\'' +
+                '}';
     }
 }
