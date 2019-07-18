@@ -1,4 +1,4 @@
-package com.huwy.factory;
+package com.huwy.bean;
 
 import com.huwy.bean.Color;
 import org.springframework.beans.factory.FactoryBean;

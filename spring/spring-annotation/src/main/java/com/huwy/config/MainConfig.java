@@ -1,17 +1,15 @@
 package com.huwy.config;
 
-import com.huwy.bean.Color;
 import com.huwy.bean.Person;
 import com.huwy.bean.Red;
 import com.huwy.condition.LinuxCondition;
 import com.huwy.condition.MyImportBeanDefinitionRegistrar;
 import com.huwy.condition.MyImportSelector;
 import com.huwy.condition.WindowCondition;
-import com.huwy.factory.ColorFactory;
+import com.huwy.bean.ColorFactory;
 import com.huwy.service.BookService;
 import org.springframework.context.annotation.*;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 
 /**
  * <p>描述:
