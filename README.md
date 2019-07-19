@@ -42,6 +42,6 @@ spring-annotation
        3.可以写${};取出配置文件【properties】中的值（在运行环境变量的值）
        使用注解方式加载properties文件。
        @PropertySource(value = {"classpath:person.properties"}, encoding = "utf-8")
-
+       
          
 
