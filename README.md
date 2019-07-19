@@ -42,6 +42,20 @@ spring-annotation
        3.可以写${};取出配置文件【properties】中的值（在运行环境变量的值）
        使用注解方式加载properties文件。
        @PropertySource(value = {"classpath:person.properties"}, encoding = "utf-8")
+### @profile       
+         profile:
+            spring为我们提供的可以根据当前环境，动态的激活和切换一系列组件的功能。
+            开发环境、测试环境、生产环境
+            1)加上环境标识的bean，只有这个环境被激活的时候才能注册到容器中，默认是default环境
+            2）@profile写在配置类上，只有时指定的环境的时候，整个配置类里面的所有配置才能开始生效  
+          使用：
+            1)在虚拟机环境下添加参数-Dspring.profiles.active=test   （test、dev、prod三种，分别为测试、开发、生产）
+           2)AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+             context.getEnvironment().setActiveProfiles("dev");
+             context.register(MainConfigOfProfile.class);
+             context.refresh();
+             备注：/* AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MainConfigOfProfile.class);*/
+             不能用这种方式加载配置类
        
          
 
