@@ -1,9 +1,7 @@
 package com.huwy.config;
 
 import com.huwy.bean.Person;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.*;
 
 /**
  * <p>描述:
