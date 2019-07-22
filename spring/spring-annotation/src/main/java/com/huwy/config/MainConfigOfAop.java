@@ -19,11 +19,13 @@ public class MainConfigOfAop {
 
     @Bean
     public MathCalculator mathCalculator() {
+
         return new MathCalculator();
     }
 
     @Bean
     public LogAspect logAspect() {
+
         return new LogAspect();
     }
 
