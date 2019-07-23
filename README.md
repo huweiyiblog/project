@@ -57,5 +57,13 @@ spring-annotation
              备注：/* AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MainConfigOfProfile.class);*/
              不能用这种方式加载配置类
        
+### 基于注解方法实现事务管理
+          1）在配置类上添加@EnableTransactionManagement，表示开启基于注解的事务管理功能
+          2） 添加事务管理器到容器中
+           @Bean
+           public PlatformTransactionManager transactionManager() throws PropertyVetoException {
+               return new DataSourceTransactionManager(dataSource());
+           }
+          3）@Transacational  给方法上标注表示当前方法是是一个事务方法
          
 
