@@ -64,6 +64,8 @@
                 <version>${springframework.version}</version>
             </dependency>
 
+
+
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-test</artifactId>
@@ -89,6 +91,13 @@
                 <artifactId>spring-data-commons</artifactId>
                 <version>1.9.1.RELEASE</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>${springframework.version}</version>
+            </dependency>
+
             <!-- apache 配置 -->
             <dependency>
                 <groupId>org.apache.commons</groupId>
