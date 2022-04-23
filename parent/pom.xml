@@ -13,7 +13,7 @@
     <artifactId>parent</artifactId>
 
     <properties>
-        <springframework.version>5.1.8.RELEASE</springframework.version>
+        <springframework.version>5.3.19</springframework.version>
     </properties>
     <dependencyManagement>
         <dependencies>
